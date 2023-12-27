@@ -1,0 +1,47 @@
+<mat-form-field
+  appearance="outline"
+  [class.required]="required"
+  [class.ng-invalid]="isInvalid"
+  [class.invalid]="isInvalid"
+>
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    [matAutocomplete]="auto"
+    label-placement="floating"
+    fill="outline"
+    [(ngModel)]="input"
+    (keyup)="handleChange()"
+    (blur)="onBlur()"
+    (focus)="onFocus()"
+    [disabled]="disabled"
+    [class.disabled]="disabled"
+    fill="outline"
+  />
+  <mat-autocomplete
+    #auto="matAutocomplete"
+    [displayWith]="displayFn"
+    (optionSelected)="onSelected($event)"
+  >
+    <mat-option
+      *ngFor="let option of filteredOptions | async"
+      [value]="option.value"
+    >
+      {{ option.label }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+  <div *ngIf="isInvalid">
+  <span *ngIf="ngControl?.errors?.['required']" class="error"
+    >Campo obrigatório</span
+  >
+  <span *ngIf="ngControl?.errors?.['minlength']" class="error"
+    >Deve conter no mínimo
+    {{ngControl?.errors?.['minlength'].requiredLength}}</span
+  >
+  <span
+    class="error"
+    *ngIf="ngControl?.errors?.['error'] && !ngControl?.errors?.['required'] && !ngControl?.errors?.['minlength']"
+    >{{ngControl?.errors?.['error']}}</span
+  >
+</div>

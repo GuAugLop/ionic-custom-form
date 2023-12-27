@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="input-container">
+    <ion-input
+      mode="md"
+      [label]="label + (required ? '&nbsp;&nbsp;' : '')"
+      [class.required]="required"
+      label-placement="floating"
+      [placeholder]="placeholder"
+      fill="outline"
+      [(ngModel)]="input"
+      (ngModelChange)="format()"
+      [maxlength]="6"
+      (ionBlur)="onBlur()"
+      [class.ng-invalid]="isInvalid"
+      [class.invalid]="isInvalid"
+      [disabled]="disabled"
+      [class.disabled]="disabled"
+      fill="outline"
+    ></ion-input>
+  </div>
+  <div *ngIf="isInvalid">
+    <span *ngIf="ngControl?.errors?.['required']">Campo obrigatório</span>
+    <span *ngIf="ngControl?.errors?.['minlength']"
+      >Deve conter no mínimo
+      {{ngControl?.errors?.['minlength'].requiredLength}}</span
+    >
+    <span
+      *ngIf="ngControl?.errors?.['error'] && !ngControl?.errors?.['required'] && !ngControl?.errors?.['minlength']"
+      >{{ngControl?.errors?.['error']}}</span
+    >
+  </div>
+</div>

@@ -1,0 +1,21 @@
+{
+  "name": "ionic-custom-form",
+  "version": "1.2.3",
+  "peerDependencies": {
+    "@angular/common": "^16.2.0",
+    "@angular/core": "^16.2.0",
+    "@angular/material": "^16.2.6",
+    "moment": "^2.29.4",
+    "ngx-mask": "^13.1.3",
+    "@ionic/angular": "^7.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "exports": {
+    "./src/css/*": {
+      "style": "./css/*"
+    }
+  },
+  "sideEffects": false
+}

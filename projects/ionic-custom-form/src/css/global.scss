@@ -1,0 +1,494 @@
+@use "@angular/material" as mat;
+/* Core CSS required for Ionic components to work properly */
+@import '~@ionic/angular/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$theme-primary: mat.define-palette(mat.$indigo-palette);
+$theme-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$theme-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $theme-primary,
+      accent: $theme-accent,
+      warn: $theme-warn,
+    ),
+    typography: mat.define-typography-config(),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($theme);
+
+.btn_custom-paging-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  min-width: 230px;
+  width: 230px;
+
+  mat-button {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  mat-button[selected="selected"] {
+    background-color: var(--ion-color-gray-5) !important;
+  }
+}
+
+table {
+  tbody,
+  .mdc-data-table__content {
+    min-height: 400px !important;
+  }
+}
+
+.mat-mdc-table .mdc-data-table__row,
+.mat-mdc-cell,
+.mdc-data-table__cell {
+  max-height: 52px !important;
+  min-height: 52px !important;
+  height: 52px !important;
+}
+
+.mat-mdc-paginator-navigation-last,
+.mat-mdc-paginator-navigation-first {
+  display: none !important;
+}
+
+:root {
+  font-size: 16px;
+
+  /**Gray Scale**/
+  --ion-color-gray-5: #eceff4;
+  --ion-color-gray-10: #e0e5ed;
+  --ion-color-gray-20: #abb7c9;
+  --ion-color-gray-30: #96a0b5;
+  --ion-color-gray-40: #7c829c;
+  --ion-color-gray-50: #73778b;
+  --ion-color-gray-70: #4c4f5f;
+  --ion-color-gray-90: #292c38;
+
+  /*Toast*/
+  --success: #edf7ee;
+  --success-line: #0abf30;
+  --error: #ffcece;
+  --error-line: #e24d4c;
+  --warning: #fff3c2;
+  --warning-line: #e9bd0c;
+  --info: #cdebff;
+  --info-line: #3498db;
+}
+
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* Fonts */
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local("mulish 300"), local("mulish-300"),
+    url(^assets/fonts/mulish-v10-latin-ext_latin-300.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("mulish 400"), local("mulish-400"),
+    url(^assets/fonts/mulish-v10-latin-ext_latin-400.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local("mulish 500"), local("mulish-500"),
+    url(^assets/fonts/mulish-v10-latin-ext_latin-500.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local("mulish 600"), local("mulish-600"),
+    url(^assets/fonts/mulish-v10-latin-ext_latin-600.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("mulish 700"), local("mulish-700"),
+    url(^assets/fonts/mulish-v10-latin-ext_latin-700.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: local("mulish 800"), local("mulish-800"),
+    url(^assets/fonts/mulish-v10-latin-ext_latin-800.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: local("mulish 900"), local("mulish-900"),
+    url(^assets/fonts/mulish-v10-latin-ext_latin-900.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+[custom-header] {
+  border-radius: 0 0 15px 15px;
+
+  ion-toolbar {
+    --background: var(--ion-color-primary);
+    --padding-top: 30px;
+    --padding-bottom: 0;
+    --border-width: 1px;
+    --border-color: var(--ion-color-primary);
+    border-radius: 0 0 15px 15px;
+
+    .header {
+      padding: 0 24px 30px 15px;
+      display: flex;
+      align-items: center;
+
+      ion-back-button {
+        color: white;
+        font-size: 15px;
+        height: 52px;
+        width: 60px;
+      }
+      span {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 32px;
+        color: var(--ion-color-primary-contrast);
+      }
+    }
+  }
+}
+
+[main-button] {
+  --border-radius: 8px;
+  font-weight: 700;
+  font-size: 18px;
+  --background: var(--ion-color-primary);
+}
+
+[secondary-button] {
+  --border-radius: 8px;
+  font-weight: 700;
+  font-size: 18px;
+  --background: var(--ion-color-primary-contrast);
+  --border-color: var(--ion-color-primary);
+  --color: var(--ion-color-primary);
+  --background-activated: var(--ion-color-primary);
+}
+
+.app-splash {
+  --min-width: 100vw;
+  --min-height: 100vh;
+}
+
+/*TOAST*/
+.notifications {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  z-index: 99;
+  transition: all 2s;
+
+  &:where(.toast, .column) {
+    display: flex;
+    align-items: center;
+  }
+  .toast {
+    width: 400px;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    border-radius: 4px;
+    padding: 16px 17px;
+    margin-bottom: 10px;
+    background: var(--success);
+    justify-content: space-between;
+    animation: show_toast 0.3s ease forwards;
+
+    &.hide {
+      animation: hide_toast 0.3s ease forwards;
+    }
+
+    ion-icon {
+      min-width: 28px;
+      min-height: 28px;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 3px;
+      width: 100%;
+      bottom: 0px;
+      left: 0px;
+      animation: progress 5s linear forwards;
+    }
+
+    &.success {
+      background: var(--success);
+      ion-icon {
+        fill: var(--success-line);
+      }
+    }
+    &.success::before,
+    .btn#success {
+      background: var(--success-line);
+    }
+
+    &.error {
+      background: var(--error);
+      ion-icon {
+        fill: var(--error-line);
+      }
+    }
+    &.error::before,
+    .btn#error {
+      background: var(--error-line);
+    }
+
+    &.warning {
+      background: var(--warning);
+      ion-icon {
+        fill: var(--warning-line);
+      }
+    }
+    &.warning::before,
+    .btn#warning {
+      background: var(--warning-line);
+    }
+
+    &.info {
+      background: var(--info);
+      ion-icon {
+        fill: var(--info-line);
+      }
+    }
+    &.info::before,
+    .btn#info {
+      background: var(--info-line);
+    }
+    .column {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .left {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      ion-icon {
+        font-size: 1.75rem;
+      }
+      .messages {
+        display: flex;
+        flex-direction: column;
+        span {
+          text-align: flex-start;
+        }
+        .title {
+          font-size: 1.1rem;
+          font-weight: 700;
+        }
+        .subtitle {
+          font-size: 0.9rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+@keyframes show_toast {
+  0% {
+    transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(-5%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+@keyframes hide_toast {
+  0% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(calc(100% + 20px));
+  }
+}
+@keyframes progress {
+  100% {
+    width: 0%;
+  }
+}
+.toast.success .column ion-icon {
+  fill: var(--success-line);
+}
+.toast.error .column ion-icon {
+  fill: var(--error-line);
+}
+.toast.warning .column ion-icon {
+  fill: var(--warning-line);
+}
+.toast.info .column ion-icon {
+  color: var(--info-line);
+}
+.toast .column span {
+  color: var(--ion-color-gray-90);
+  font-size: 1.07rem;
+  margin-left: 12px;
+}
+.toast i:last-child {
+  color: #aeb0d7;
+  cursor: pointer;
+}
+.toast i:last-child:hover {
+  color: var(--dark);
+}
+.buttons .btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0 5px;
+  color: var(--light);
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+@media screen and (max-width: 530px) {
+  .notifications {
+    width: 95%;
+  }
+  .notifications .toast {
+    width: 100%;
+    font-size: 1rem;
+    margin-left: 20px;
+  }
+  .buttons .btn {
+    margin: 0 1px;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+  }
+}
+/*FIM-TOAST*/
+
+/* Ajuste layouts dispositivos diferentes */
+.plt-android {
+  gs3-input {
+    .currency {
+      font-size: 0.9rem !important;
+    }
+  }
+}
+
+/* Cor botao desabilitado header calendario*/
+mat-calendar mat-calendar-header button[ng-reflect-disabled='true']::after {
+  color: #ccc !important;
+}

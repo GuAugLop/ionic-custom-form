@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="input-container">
+    <ion-input
+      mode="md"
+      [label]="label + (required ? '&nbsp;&nbsp;' : '')"
+      [class.required]="required"
+      label-placement="floating"
+      [placeholder]="placeholder"
+      fill="outline"
+      [type]="type"
+      [(ngModel)]="input"
+      (ngModelChange)="onChange($event)"
+      (keyup)="handleChange($event)"
+      [maxlength]="maxlength"
+      (ionBlur)="onBlur($event)"
+      (ionFocus)="onFocus($event)"
+      [class.ng-invalid]="isInvalid"
+      [class.invalid]="isInvalid"
+      [disabled]="disabled"
+      [class.eye-padding]="eye"
+      [class.disabled]="disabled"
+      [class.icon-padding]="(mask === 'currency' || mask === 'percentage')"
+    ></ion-input>
+    <span
+      *ngIf="mask === 'currency' || mask === 'percentage'"
+      class="currency"
+      [class.disabled]="disabled"
+      >{{ mask === 'currency' ? 'R$' : mask === 'percentage' ? '%' : '' }}</span
+    >
+    <ion-icon
+      *ngIf="eye"
+      [name]="type === 'password' ? 'eye' : 'eye-off'"
+      (click)="type === 'password' ? (type = 'text') : (type = 'password')"
+    />
+  </div>
+  <div *ngIf="isInvalid">
+    <span *ngIf="ngControl?.errors?.['required']">Campo obrigatório</span>
+    <span *ngIf="ngControl?.errors?.['minlength']"
+      >Deve conter no mínimo
+      {{ngControl?.errors?.['minlength'].requiredLength}}</span
+    >
+    <span
+      *ngIf="ngControl?.errors?.['error'] && !ngControl?.errors?.['required'] && !ngControl?.errors?.['minlength']"
+      >{{ngControl?.errors?.['error']}}</span
+    >
+  </div>
+</div>

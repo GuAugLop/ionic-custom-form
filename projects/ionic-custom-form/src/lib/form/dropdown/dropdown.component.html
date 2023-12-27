@@ -1,0 +1,14 @@
+<ion-select
+  [label]="label + (required ? '&nbsp;&nbsp;' : '')"
+  label-placement="floating"
+  interface="popover"
+  [class.required]="required"
+  [(ngModel)]="selectedValue"
+  fill="outline"
+  (ionChange)="onValueChange($event)"
+  [class.invalid]="isInvalid"
+>
+  <ion-select-option [value]="item.value" *ngFor="let item of values">{{
+    item.label
+  }}</ion-select-option>
+</ion-select>

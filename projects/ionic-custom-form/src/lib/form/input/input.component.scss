@@ -1,0 +1,130 @@
+.container {
+  margin: 12px 0;
+
+  .input-container {
+    position: relative;
+  }
+  span {
+    font-size: 0.9rem;
+    color: var(--ion-color-danger);
+  }
+
+  ion-icon {
+    min-width: 24px;
+    min-height: 24px;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: var(--ion-color-gray-20);
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  ion-input {
+    &.disabled {
+      --background: #efefef;
+    }
+    --background: #fff;
+    --border-radius: 12px;
+    --border-color: var(--ion-color-gray-10);
+    --padding-start: 12px;
+    &.eye-padding {
+      &::ng-deep {
+        ion-input {
+          padding-right: 40px;
+        }
+      }
+    }
+    &.icon-padding {
+      &::ng-deep .label-text {
+        transition: all 0.1s;
+      }
+      &.has-value,
+      &.has-focus {
+        ::ng-deep .label-text {
+          transform: translateX(0px) !important;
+        }
+      }
+      &:not(.has-value) {
+        ::ng-deep .label-text {
+          transform: translateX(24px);
+        }
+      }
+      ::ng-deep {
+        input {
+          padding-left: 24px !important;
+        }
+      }
+    }
+    &.invalid {
+      --border-color: var(--ion-color-danger);
+      --border-width: 2px;
+      &.ion-untouched,
+      &.ion-pristine {
+        ::ng-deep .label-text {
+          color: var(--ion-color-danger);
+        }
+        &.has-focus {
+          ::ng-deep .label-text {
+            color: var(--ion-color-danger);
+          }
+        }
+      }
+    }
+    &.ion-untouched,
+    &.ion-pristine,
+    &.ng-intouched,
+    &.ng-pristine,
+    &:not(.has-value) {
+      &::ng-deep .label-text {
+        color: var(--ion-color-gray-30);
+      }
+      &.has-focus {
+        &::ng-deep .label-text {
+          color: #000;
+        }
+      }
+    }
+
+    &:not(.has-focus) {
+      &:not(.has-value) {
+        &::ng-deep {
+          .label-text-wrapper {
+            transform: translateY(75%) scale(1) !important;
+          }
+        }
+      }
+    }
+
+    &.required {
+      &::ng-deep {
+        .label-text-wrapper {
+          &::after {
+            content: "*";
+            position: absolute;
+            right: -2px;
+            top: 60%;
+            transform: translateY(-50%);
+            color: red;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+  .currency {
+    position: absolute;
+    color: var(--ion-color-gray-90);
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    z-index: 2;
+    &.disabled {
+      color: var(--ion-color-gray-70);
+      font-weight: 100;
+      z-index: 0;
+    }
+  }
+}

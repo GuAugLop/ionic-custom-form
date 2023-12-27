@@ -1,0 +1,44 @@
+.container {
+  position: relative;
+  ion-input {
+    --background: #fff;
+    --border-radius: 12px;
+    --border-color: var(--ion-color-gray-10);
+    --padding-start: 42px;
+    &.ion-untouched {
+      ::ng-deep .label-text {
+        color: var(--ion-color-gray-30);
+      }
+      &.has-focus {
+        ::ng-deep .label-text {
+          color: #000;
+        }
+      }
+    }
+  }
+  ion-icon {
+    z-index: 3;
+    fill: var(--ion-color-gray-30);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 16px;
+  }
+  .input-container {
+    position: relative;
+  }
+  span {
+    font-size: 0.9rem;
+    color: var(--ion-color-danger);
+  }
+
+  ion-input {
+    &.disabled {
+      --background: #efefef;
+    }
+    &.invalid {
+      --border-color: var(--ion-color-danger);
+      --border-width: 2px;
+    }
+  }
+}

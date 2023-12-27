@@ -1,0 +1,16 @@
+<ion-radio-group
+  (ionChange)="onValueChange($event)"
+  [(ngModel)]="selectedValue"
+  [class.invalid]="isInvalid"
+  [class.required]="required"
+>
+  <ion-label class="title">{{
+    label + (required ? "&nbsp;&nbsp;" : "")
+  }}</ion-label>
+  <div>
+    <ion-item lines="none" *ngFor="let option of values">
+      <ion-radio [disabled]="disabled" [value]="option.value"></ion-radio>
+      <ion-label>{{ option.label }}</ion-label>
+    </ion-item>
+  </div>
+</ion-radio-group>

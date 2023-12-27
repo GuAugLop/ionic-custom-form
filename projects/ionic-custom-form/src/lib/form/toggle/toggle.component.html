@@ -1,0 +1,12 @@
+<ion-toggle
+  (ionChange)="onValueChange($event)"
+  [(ngModel)]="selectedValue"
+  [class.invalid]="isInvalid"
+  [labelPlacement]="labelPlacement"
+  [class.required]="required"
+  [disabled]="disabled"
+  [value]="selectedValue"
+  mode="md"
+>
+  {{ label + (required ? "&nbsp;&nbsp;" : "") }}</ion-toggle
+>

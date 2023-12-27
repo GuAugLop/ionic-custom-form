@@ -1,0 +1,19 @@
+<div class="container">
+  <ion-icon name="search"></ion-icon>
+  <ion-input
+    [label]="label"
+    label-placement="floating"
+    [type]="type"
+    [(ngModel)]="input"
+    (ngModelChange)="onChange($event)"
+    (keyup)="handleChange()"
+    [maxlength]="maxlength"
+    (ionBlur)="onBlur()"
+    [class.ng-invalid]="isInvalid"
+    [class.invalid]="isInvalid"
+    [disabled]="disabled"
+    [class.disabled]="disabled"
+    fill="outline"
+    [placeholder]="placeholder"
+></ion-input>
+</div>

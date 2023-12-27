@@ -1,0 +1,22 @@
+ion-radio-group {
+  display: flex;
+  align-items: center;
+  * {
+    color: var(--ion-color-gray-50);
+    fill: var(--ion-color-gray-50);
+    --background: none;
+  }
+
+  .title {
+    margin-right: 12px;
+  }
+  div {
+    display: flex;
+    ion-item {
+      --padding-start: 0;
+      ion-label {
+        margin-left: 8px;
+      }
+    }
+  }
+}

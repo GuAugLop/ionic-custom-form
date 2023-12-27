@@ -1,0 +1,61 @@
+mat-form-field {
+  flex: 1;
+  width: 100%;
+  padding-top: 11px;
+  &.required {
+    &::ng-deep {
+      .mdc-floating-label {
+        mat-label::after {
+          content: "*";
+          color: red;
+        }
+      }
+    }
+  }
+
+  &::ng-deep {
+    .mdc-notched-outline__trailing,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__leading {
+      border-color: var(--ion-color-gray-10) !important;
+    }
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+
+    .mdc-notched-outline__leading {
+      border-top-left-radius: 8px !important;
+      border-bottom-left-radius: 8px !important;
+    }
+    .mdc-notched-outline__trailing {
+      border-top-right-radius: 8px !important;
+      border-bottom-right-radius: 8px !important;
+    }
+
+    .mdc-floating-label {
+      mat-label {
+        color: var(--ion-color-gray-30) !important;
+      }
+    }
+  }
+  &.invalid {
+    &::ng-deep {
+      .mdc-notched-outline__trailing,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__leading {
+        border-color: var(--ion-color-danger) !important;
+        border-width: 2px;
+      }
+      .mdc-floating-label {
+        mat-label {
+          color: var(--ion-color-danger) !important;
+        }
+      }
+    }
+  }
+}
+
+.error {
+  font-size: 0.9rem;
+  color: var(--ion-color-danger);
+}

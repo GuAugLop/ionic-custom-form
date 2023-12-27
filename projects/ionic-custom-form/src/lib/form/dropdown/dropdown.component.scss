@@ -1,0 +1,24 @@
+ion-select {
+  min-width: 200px;
+  --background: #fff;
+  --border-radius: 12px;
+  --border-color: var(--ion-color-gray-10);
+  &.required {
+    &::part(label) {
+      &::after {
+        content: "*";
+        position: absolute;
+        right: -2px;
+        top: 60%;
+        transform: translateY(-50%);
+        color: red;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.invalid {
+  --border-color: var(--ion-color-danger);
+  --border-width: 2px;
+}

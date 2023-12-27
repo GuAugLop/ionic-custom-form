@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="input-container">
+    <ion-input
+      mode="md"
+      [label]="label + (required ? '&nbsp;&nbsp;' : '')"
+      [class.required]="required"
+      label-placement="floating"
+      type="tel"
+      [placeholder]="placeholder"
+      fill="outline"
+      (ngModelChange)="onChange($event)"
+      (keyup)="handleChange($event)"
+      (ionBlur)="onBlur()"
+      [(ngModel)]="input"
+      [maxlength]="10"
+      [class.ng-invalid]="isInvalid || invalidDate"
+      [class.invalid]="isInvalid || invalidDate"
+      [disabled]="disabled"
+      [class.disabled]="disabled"
+    ></ion-input>
+    <ion-icon name="calendar" (click)="picker.open()"></ion-icon>
+    <input
+      *ngIf="this.firstRender"
+      style="position: absolute; z-index: -10; opacity: 0"
+      matInput
+      [(ngModel)]="selected"
+      [max]="max"
+      [min]="min"
+      (dateChange)="selectCalendar($event)"
+      [matDatepicker]="picker"
+    />
+    <mat-datepicker-toggle
+      style="position: absolute; z-index: -10; opacity: 0"
+      matIconSuffix
+      [for]="picker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker
+      style="position: absolute; z-index: -10; opacity: 0"
+      #picker
+    ></mat-datepicker>
+  </div>
+  <div *ngIf="isInvalid">
+    <span *ngIf="ngControl?.errors?.['required']">Campo obrigatório</span>
+    <span
+      *ngIf="ngControl?.errors?.['error'] && !ngControl?.errors?.['required'] && !ngControl?.errors?.['minlength']"
+      >{{ngControl?.errors?.['error']}}</span
+    >
+  </div>
+</div>

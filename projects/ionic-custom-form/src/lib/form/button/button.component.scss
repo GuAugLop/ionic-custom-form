@@ -1,0 +1,31 @@
+ion-button {
+  min-height: 40px;
+  max-height: 40px;
+  height: 40px;
+  border: none;
+  --box-shadow: none;
+}
+
+.danger {
+  color: var(--error-line);
+  --border-color: var(--error-line);
+  --border-width: 1px;
+  --border-style: solid;
+  --background: var(--error);
+  ion-icon {
+    fill: var(--error-line);
+    color: var(--error-line);
+  }
+}
+
+.success {
+  color: var(--success-line);
+  --border-color: var(--success-line);
+  --border-width: 1px;
+  --border-style: solid;
+  --background: var(--success);
+  ion-icon {
+    fill: var(--success-line);
+    color: var(--success-line);
+  }
+}
