@@ -2,8 +2,8 @@
   <div class="input-container">
     <ion-input
       mode="md"
-      [label]="label + (required ? '&nbsp;&nbsp;' : '')"
-      [class.required]="required"
+      [label]="label + (required && label ? '&nbsp;&nbsp;' : '')"
+      [class.required]="required && label"
       label-placement="floating"
       [placeholder]="placeholder"
       fill="outline"
@@ -19,13 +19,13 @@
       [disabled]="disabled"
       [class.eye-padding]="eye"
       [class.disabled]="disabled"
-      [class.icon-padding]="(mask === 'currency' || mask === 'percentage')"
+      [class.icon-padding]="mask === 'currency' || mask === 'percentage'"
     ></ion-input>
     <span
       *ngIf="mask === 'currency' || mask === 'percentage'"
       class="currency"
       [class.disabled]="disabled"
-      >{{ mask === 'currency' ? 'R$' : mask === 'percentage' ? '%' : '' }}</span
+      >{{ mask === "currency" ? "R$" : mask === "percentage" ? "%" : "" }}</span
     >
     <ion-icon
       *ngIf="eye"
